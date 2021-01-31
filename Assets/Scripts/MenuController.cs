@@ -13,7 +13,7 @@ public class MenuController : MonoBehaviour
         // Don't know how to save in webgl so abusing prefs - don't judge me
         if (!PlayerPrefs.HasKey("HighScore"))
         {
-            PlayerPrefs.SetInt("HighScore", 15000);
+            PlayerPrefs.SetInt("HighScore", 0);
         }
         var highScoreValue = Mathf.Max(PlayerPrefs.GetInt("HighScore", 0)).ToString();
         for (int i = highScoreValue.Length; i < GameManager.maxDigits; i++)

@@ -25,6 +25,7 @@ public class PlayerController : Mover
     protected override void Start()
     {
         base.Start();
+        lastFireTime = Time.time + bulletWaitTime;
     }
 
     protected override void Update()
@@ -85,11 +86,15 @@ public class PlayerController : Mover
     {
         lastFireTime = Time.time;
         GameManager.gameManager.audioSource.PlayOneShot(bulletFire);
-        Debug.Log(rendercam.pixelHeight);
         Vector3 target = rendercam.WorldToScreenPoint(transform.position) * ((float)Screen.height / (float)GameManager.GAME_HEIGHT);
         target.x = Input.mousePosition.x - target.x;
         target.z = Input.mousePosition.y - target.y;
         target.y = 0;
+
+        var shipTarget = rendercam.WorldToScreenPoint(transform.position) - new Vector3(GameManager.GAME_WIDTH / 2f, GameManager.GAME_HEIGHT / 2f);
+
+        target = new Vector3(mouseCutout.transform.position.x - shipCutout.transform.position.x, 0,
+            mouseCutout.transform.position.y - shipCutout.transform.position.y);
 
         var bullet = Instantiate(bulletPrefab).GetComponent<BulletController>(); // temp, will pool when time
         bullet.transform.position = transform.position;

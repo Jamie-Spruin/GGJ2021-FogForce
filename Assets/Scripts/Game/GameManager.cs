@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour
     public TMPro.TextMeshProUGUI scoreText;
     public TMPro.TextMeshProUGUI gameOverHighScoreText;
     public TMPro.TextMeshProUGUI gameOverScoreText;
+    public Transform player;
 
     public bool isDead = false;
 
@@ -25,6 +26,7 @@ public class GameManager : MonoBehaviour
     public  int maxHealth = 4;
     private Color fogColor = Color.white;
     private float gameStartTime;
+    private int lastScoreupdate;
 
     public float currentSpeed = 1;
     public float fogTransitionDelay = 10;
@@ -72,7 +74,7 @@ public class GameManager : MonoBehaviour
         }
 
         gameManager.scoreText.text = $"Score : {scoreValue}";
-        gameManager.gameOverHighScoreText.text = $"Score : {scoreValue}";
+        gameManager.gameOverScoreText.text = $"Score : {scoreValue}";
 
         var highScoreValue = Mathf.Max(PlayerPrefs.GetInt("HighScore")).ToString();
         for (int i = highScoreValue.Length; i < GameManager.maxDigits; i++)
@@ -86,12 +88,12 @@ public class GameManager : MonoBehaviour
     {
         GameManager.gameManager = this;
         gameStartTime = Time.time;
-        
+        lastScoreupdate = Mathf.FloorToInt(Time.unscaledTime);
+        score = 0;
     }
 
     private void Update()
     {
-
         if (isDead)
         {
             Time.timeScale = Mathf.Max(Time.timeScale - 0.5f * Time.unscaledDeltaTime, 0);
@@ -104,9 +106,15 @@ public class GameManager : MonoBehaviour
             return;
         }
 
+        if(Time.unscaledTime - lastScoreupdate >= 1)
+        {
+            lastScoreupdate = Mathf.FloorToInt(Time.unscaledTime);
+            IncreaseScore(5);
+        }
+
         Cursor.visible = false;
         fogColor.a = Mathf.Min(1, (Time.time - gameStartTime - fogTransitionDelay) / fogTransitionTime);
-        var multiplierOffset = Mathf.Clamp((Time.time - gameStartTime - 40f) / speedUpValue, 0, 2);
+        var multiplierOffset = Mathf.Clamp((Time.time - gameStartTime - 25f) / speedUpValue, 0, 2);
         Time.timeScale = 1 + multiplierOffset;
         audioSource.pitch = 1 + multiplierOffset / 2;
         fog.color = fogColor;

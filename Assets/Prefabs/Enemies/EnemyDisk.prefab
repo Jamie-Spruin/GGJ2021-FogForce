@@ -41,8 +41,8 @@ GameObject:
   m_Component:
   - component: {fileID: 7569709827498379573}
   - component: {fileID: -5643405503495274415}
-  - component: {fileID: 1503043805251537624}
   - component: {fileID: 2137605102186738537}
+  - component: {fileID: 54950114013960284}
   m_Layer: 14
   m_Name: EnemyDisk
   m_TagString: Untagged
@@ -81,26 +81,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &1503043805251537624
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7884422522821065427}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 738ac54a301e15e4184138feb8194e3f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rb: {fileID: -5643405503495274415}
-  movementVector: {x: 0, y: 0, z: 0}
-  health: 1
-  points: 50
-  explosionPrefab: {fileID: 6627845055059972370, guid: d5ff20e1d23f500458ff86e652d006e9,
-    type: 3}
-  explosionSound: {fileID: 8300000, guid: 7d896455c3a2ca142af72276ef4631c6, type: 3}
-  speed: 10
 --- !u!135 &2137605102186738537
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -114,6 +94,34 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 1.5
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &54950114013960284
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7884422522821065427}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28110fa666bfc7e47a77a16b11e29f43, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: -5643405503495274415}
+  movementVector: {x: 0, y: 0, z: 0}
+  health: 1
+  points: 100
+  explosionSound: {fileID: 8300000, guid: 7d896455c3a2ca142af72276ef4631c6, type: 3}
+  shootSound: {fileID: 8300000, guid: d8069ee1f0e44da4aa3ed658166e7de3, type: 3}
+  bulletPrefab: {fileID: 9085437433583387225, guid: 627d0045539d694469768a2b49312993,
+    type: 3}
+  modelRoot: {fileID: 6722083848885078781}
+  speed: 12
+  targetDistance: 32
+  turnAcceleration: 8
+  bulletInterval: 0.2
+  bulletCount: 1
+  bulletSpeed: 32
+  rotationsPerSecond: 360
 --- !u!1001 &5442666778188807990
 PrefabInstance:
   m_ObjectHideFlags: 0
