@@ -62,7 +62,7 @@ public class GameManager : MonoBehaviour
             score = 99999999;
         }
         // Don't know how to save in webgl so abusing prefs - don't judge me
-        if(PlayerPrefs.GetInt("HighScore") < points)
+        if(PlayerPrefs.GetInt("HighScore") < score)
         {
             PlayerPrefs.SetInt("HighScore", score);
         }
