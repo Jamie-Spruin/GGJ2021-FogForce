@@ -5,4 +5,9 @@ using UnityEngine;
 public class EnemyController : Mover
 {
     public int health = 1;
+
+    public void InflictDamage()
+    {
+
+    }
 }

@@ -17,6 +17,7 @@ public class Mover : MonoBehaviour
 
     protected virtual void Update()
     {
-        rb.MovePosition(rb.position + (movementVector * Time.deltaTime));
+        rb.velocity = movementVector;
+        //rb.velocity = Vector3.zero; // hack to prevent gaining speed from collision
     }
 }
