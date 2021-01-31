@@ -27,16 +27,18 @@ public class BulletController : Mover
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.GetComponent<EnemyController>() != null && gameObject.layer == 10)
+        if(other.gameObject.GetComponent<EnemyController>() != null && gameObject.layer == 13)
         {
             other.gameObject.GetComponent<EnemyController>().InflictDamage();
         }
-        else if(other.gameObject.GetComponent<PlayerController>() != null && gameObject.layer == 12)
+        else if(other.gameObject.GetComponent<PlayerController>() != null && gameObject.layer == 15)
         {
-
+            other.gameObject.GetComponent<PlayerController>().InflictDamage();
         }
 
-        if(other.gameObject.layer == 8 || other.gameObject.layer == 11 || other.gameObject.layer == 12)
+        if(other.gameObject.layer == 11 ||
+            (other.gameObject.layer == 12 && gameObject.layer == 15) ||
+            (other.gameObject.layer == 14 && gameObject.layer == 13))
         {
             RemoveBullet();
         }

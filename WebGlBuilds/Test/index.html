@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Unity WebGL Player | FogForce</title>
+  </head>
+  <body style="text-align: center">
+    <canvas id="unity-canvas" style="width: 768px; height: 432px; background: #231F20"></canvas>
+    <script src="Build/Test.asm.loader.js"></script>
+    <script>
+      createUnityInstance(document.querySelector("#unity-canvas"), {
+        dataUrl: "Build/Test.data.gz",
+        frameworkUrl: "Build/Test.asm.framework.js.gz",
+        codeUrl: "Build/Test.asm.js.gz",
+        memoryUrl: "Build/Test.asm.mem.gz",
+        streamingAssetsUrl: "StreamingAssets",
+        companyName: "DefaultCompany",
+        productName: "FogForce",
+        productVersion: "1.0",
+      });
+    </script>
+  </body>
+</html>

@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 762366558078605929}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -41,7 +41,7 @@ GameObject:
   - component: {fileID: 6023616782288054157}
   - component: {fileID: 2755081231767715624}
   - component: {fileID: 7606781425850432074}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: PlayerBullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -107,7 +107,7 @@ GameObject:
   - component: {fileID: 6234219647788385560}
   - component: {fileID: 649643995985600843}
   - component: {fileID: 5653092985863996941}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: PlayerBullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}

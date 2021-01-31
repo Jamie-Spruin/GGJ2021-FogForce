@@ -14,6 +14,8 @@ public class PlayerController : Mover
     public Camera rendercam;
     public GameObject bulletPrefab;
 
+    public AudioClip explosionClip;
+
     public CutoutMover mouseCutout;
     public CutoutMover shipCutout;
 
@@ -59,7 +61,24 @@ public class PlayerController : Mover
 
     public void InflictDamage()
     {
+        // was considering having hp, but not gonna happen
+        GameManager.gameManager.audioSource.PlayOneShot(explosionClip);
+        GetComponent<Collider>().enabled = false; // just in case, not wasting time debugging
+        var explosion = Instantiate(GameManager.gameManager.explosionPrefab);
+        explosion.transform.position = transform.position;
+        modelRoot.gameObject.SetActive(false);
+        GameManager.gameManager.EndGame();
+    }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if (GameManager.gameManager.isDead)
+            return;
+
+        if(other.gameObject.layer == 14)
+        {
+            InflictDamage();
+        }
     }
 
     public void FireBullet()

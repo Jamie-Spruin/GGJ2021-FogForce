@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4194062613348249963}
-  m_Layer: 11
+  m_Layer: 14
   m_Name: ModelRoot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -43,7 +43,7 @@ GameObject:
   - component: {fileID: -5643405503495274415}
   - component: {fileID: 1503043805251537624}
   - component: {fileID: 2137605102186738537}
-  m_Layer: 11
+  m_Layer: 14
   m_Name: EnemyDisk
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -96,6 +96,10 @@ MonoBehaviour:
   rb: {fileID: -5643405503495274415}
   movementVector: {x: 0, y: 0, z: 0}
   health: 1
+  points: 50
+  explosionPrefab: {fileID: 6627845055059972370, guid: d5ff20e1d23f500458ff86e652d006e9,
+    type: 3}
+  explosionSound: {fileID: 8300000, guid: 7d896455c3a2ca142af72276ef4631c6, type: 3}
   speed: 10
 --- !u!135 &2137605102186738537
 SphereCollider:
@@ -105,7 +109,7 @@ SphereCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7884422522821065427}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 1.5
@@ -125,7 +129,7 @@ PrefabInstance:
     - target: {fileID: 1651025510524848085, guid: da9248dc06af3b84988557efc911022e,
         type: 3}
       propertyPath: m_Layer
-      value: 11
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 2288000160384742091, guid: da9248dc06af3b84988557efc911022e,
         type: 3}
@@ -135,7 +139,7 @@ PrefabInstance:
     - target: {fileID: 2330867630654218944, guid: da9248dc06af3b84988557efc911022e,
         type: 3}
       propertyPath: m_Layer
-      value: 11
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 2647865749703482901, guid: da9248dc06af3b84988557efc911022e,
         type: 3}
@@ -205,7 +209,7 @@ PrefabInstance:
     - target: {fileID: 7287744917359289284, guid: da9248dc06af3b84988557efc911022e,
         type: 3}
       propertyPath: m_Layer
-      value: 11
+      value: 14
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: da9248dc06af3b84988557efc911022e, type: 3}
